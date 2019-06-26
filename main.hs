@@ -36,5 +36,8 @@ verificarClassBaseEx [] classe = []
 verificarClassBaseEx (Descricao car:base) classe | (retornaClasse (last car)) == classe = [True]++ verificarClassBaseEx base classe
                                                  | otherwise = [False]++verificarClassBaseEx base classe
 
-somenteUmaClasse base classe | and (verificarClassBaseEx base classe) = No classe []
-                             | otherwise = Null 
+
+filtraClasse classe [] = []
+filtraClasse classe (Descricao car:base) | classe == (retornaClasse (last car)) = [Descricao car]++filtraClasse classe base
+                                         |otherwise = filtraClasse classe base
+
