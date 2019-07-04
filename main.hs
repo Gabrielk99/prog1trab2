@@ -2,6 +2,7 @@ import Data.List
 import Debug.Trace
 import Utils
 import ArvoreDecision
+import GeraSaida
 import qualified Data.Map as Map
 main = do 
     descricao<-readFile "descricao.txt"
@@ -12,8 +13,13 @@ main = do
     let caracteristicas = (convertToCaracteristicas descricao_1)
     let base_1 = convertToExemplo base descricao_1
     let maisComum = maioria base_1 (tail(last descricao_1))
-    let tamBase = length base_1
+    let arvD = arvoreDecisao base_1 (init caracteristicas) maisComum classe
+    caso<-readFile "caso.txt"
+    let casos = convertToExemplo (map (words) (lines caso)) descricao_1
+    let result = gerarResposta casos arvD
+
     putStrLn $ show (arvoreDecisao base_1 (init caracteristicas) maisComum classe)
+    writeFile "classe.txt" (formataSaida result) 
     --putStrLn $ show (iGR base_1 (length base_1) (init caracteristicas) classe)
 
 
@@ -24,4 +30,5 @@ geraSaidaTextual' (Valor (Num (min,max))filha) | min == ((read "-Infinity")::Dou
                                                 | otherwise = ">"++ (show min) ++ "<="++(show max)++geraSaidaTextual filha 
 geraSaidaTextual (Caracteristica nome filhas) = "se " ++ nome ++ saida
                                             where 
-                                                saida = (lines[geraSaidaTextual' valor | valor <- filhas])-}
+                                                saida = (concat[geraSaidaTextual' valor | valor <- filhas]) -}
+
