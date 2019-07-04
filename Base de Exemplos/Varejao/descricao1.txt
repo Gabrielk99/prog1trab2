@@ -1,0 +1,5 @@
+Aparencia Sol Chuva Nublado
+Temperatura
+Umidade
+Vento Sim Nao
+Viajar Va NaoVa

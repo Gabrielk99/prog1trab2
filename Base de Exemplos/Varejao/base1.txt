@@ -1,0 +1,5 @@
+Sol 25 72 Sim Va
+Sol 28 91 Sim NaoVa
+Sol 22 70 Nao Va
+Sol 23 95 Nao NaoVa
+Sol 30 85 Nao NaoVa

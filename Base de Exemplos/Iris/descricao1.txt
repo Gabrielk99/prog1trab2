@@ -1,0 +1,5 @@
+sepalLength
+sepalWidth 
+petalLength
+petalWidth 
+Flor Iris-setosa Iris-versicolour Iris-virginica
