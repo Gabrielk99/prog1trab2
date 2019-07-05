@@ -49,7 +49,7 @@ verificarClassBaseEx (Descricao mapa:base) classe |(snd(last mapa)) == classe = 
 --Saida: Quantidade em que essa classe apareceu em toda a base
 filtraClasse :: String -> [Exemplo] -> Double  
 filtraClasse _ [] = 0
-filtraClasse classe (Descricao mapa:base) | classe == (snd(last mapa)) = 1+filtraClasse classe base
+filtraClasse classe (Descricao mapa:base) |classe == (snd(last mapa)) = 1+filtraClasse classe base
                                           |otherwise = filtraClasse classe base
                                         
 --Entrada: Nome da caracteristica, valor da caracteristica e uma base
@@ -76,8 +76,8 @@ retornaNomeCarac (Nominal (nome,atributo)) = nome
 --Saida: Uma nova base onde o valor da caracterisca presente na base esta dentro do intervalo
 filtraAtributoNum::String->(String,String)->[Exemplo]->[Exemplo]
 filtraAtributoNum _ _ [] = []                  
-filtraAtributoNum nome (a,b) (Descricao mapa : base) | valor <=((read b)::Double) && valor >((read a)::Double) = (Descricao mapa):filtraAtributoNum nome (b,a) base
-                                                     |otherwise = filtraAtributoNum nome (b,a) base
+filtraAtributoNum nome (a,b) (Descricao mapa : base) | valor <=((read b)::Double) && valor >((read a)::Double) = (Descricao mapa):filtraAtributoNum nome (a,b) base
+                                                     |otherwise = filtraAtributoNum nome (a,b) base
                                             where 
                                                 valor = (read ((Map.fromList mapa) Map.! nome))::Double
 
@@ -115,4 +115,16 @@ retornaListMed ((a,b):dados) (x,c) | c/=b = show(((read a :: Double) + (read x::
 -------------------------------------------------------------------------------------------------------------------------------------------
 {-Funções auxiliares para o sortBy-}
 ordena ys xs | ys>xs = LT
-             |otherwise = GT
+             | otherwise = GT
+               
+ordenaD y x | ((read (fst y) :: Double) <= (read (fst x)::Double))  = LT
+              | otherwise = GT
+
+
+discretiza [] _ _ = []
+discretiza (Nominal (nome,atributo): caract) base classes = discretiza caract base classes            
+discretiza (Numerico (nome,atributo): caract) base classes = (nome,newAtb) : discretiza caract base classes
+                            where 
+                                list = sortBy (ordenaD) (retornaListaCaract base nome (head classes))
+                                listaPreIntervalo = retornaListMed (tail list) (head list)
+                                newAtb = converteIntervalos listaPreIntervalo "-Infinity"
