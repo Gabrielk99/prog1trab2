@@ -17,10 +17,7 @@ main = do
     caso<-readFile "caso.txt"
     let casos = convertToExemplo (map (words) (lines caso)) descricao_1
     let result = gerarResposta casos arvD
-
-    putStrLn $ show (arvoreDecisao base_1 (init caracteristicas) maisComum classe)
     writeFile "classe.txt" (formataSaida result) 
-    --putStrLn $ show (iGR base_1 (length base_1) (init caracteristicas) classe)
 
 
 ---------------------------------------------------------------------------------------------------
@@ -31,4 +28,3 @@ geraSaidaTextual' (Valor (Num (min,max))filha) | min == ((read "-Infinity")::Dou
 geraSaidaTextual (Caracteristica nome filhas) = "se " ++ nome ++ saida
                                             where 
                                                 saida = (concat[geraSaidaTextual' valor | valor <- filhas]) -}
-
