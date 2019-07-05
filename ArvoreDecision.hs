@@ -34,10 +34,10 @@ avaliaValores (Numerico (nome,atributo)) base caracteristicas classes maisComum 
 {- Função principal que ira contruir a arvore -}
 --Entrada: uma base de exemplos, uma lista de caracteristicas, a classe mais comum da base de exemplos e a lista de classes presente na descrição
 --Saida: Uma arvore de decisão
-arvoreDecisao::[Exemplo]->[Caracteristicas]->String->[String]->ArvDecision                                                    
-arvoreDecisao [] _ maisComum _ = Resultado maisComum
-arvoreDecisao _ [] maisComum _ = Resultado maisComum
-arvoreDecisao base caracteristicas maisComum classes | and(verificarClassBaseEx base maisComun) = Resultado maisComum
+arvoreDecisao::[Exemplo]->[Caracteristicas]->String->[String]->ArvDecision                                                   
+arvoreDecisao base caracteristicas maisComum classes |null base = Resultado maisComum
+                                                     |null caracteristicas = Resultado maisComum 
+                                                     |qtdClassMaisComum==(fromIntegral tamBase) = Resultado maisComun
                                                      |otherwise = arvore
                                             where 
                                              tamBase = length base
@@ -45,7 +45,8 @@ arvoreDecisao base caracteristicas maisComum classes | and(verificarClassBaseEx 
                                              arvore = Caracteristica (nome) (avaliaValores melhorT base caractAtt classes maisComun)
                                              nome = retornaNomeCarac melhorT
                                              caractAtt = removeCaract nome caracteristicas
-                                             maisComun = maioria base (tail classes) 
+                                             maisComun = maioria base (tail classes)
+                                             qtdClassMaisComum = filtraClasse maisComun base
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 {---------------------- Função do calculo de razão de ganho para selecionar a melhor caracteristica a ser utilizada---------------------}
 --Função principal para o calculo de razão de ganho
@@ -62,7 +63,7 @@ iGR base tamBase (Nominal (nome,atributo):caract) classes |ig /=0 && iv/=0 = (ig
 iGR base tamBase (Numerico (nome,atributo):caract) classes |ig/=0 && iv/= 0 =  (ig/iv,(Numerico (nome,listaPreIntervalo))):iGR base tamBase caract classes
                                                            |otherwise = (0,(Numerico (nome,listaPreIntervalo))):iGR base tamBase caract classes
                              where 
-                            discreti = sort(retornaListaCaract base nome (head classes))
+                            discreti = sortBy (ordenaD) (retornaListaCaract base nome (head classes))
                             listaPreIntervalo = retornaListMed (tail discreti) (head discreti)
                             intervalos = converteIntervalos listaPreIntervalo "-Infinity"
                             ig = iGnumerico base tamBase nome intervalos (tail classes) 
