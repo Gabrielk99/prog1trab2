@@ -1,0 +1,57 @@
+se Vento = Sim entao
+   se Aparencia = Sol entao
+      se Temperatura = Baixa entao
+         retorne Va
+      senao 
+         se Temperatura = Media entao
+            retorne Va
+         senao 
+            se Temperatura = Alta entao
+               retorne NaoVa
+            fim-se
+         fim-se
+      fim-se
+   senao 
+      se Aparencia = Chuva entao
+         retorne NaoVa
+      senao 
+         se Aparencia = Nublado entao
+            se Umidade = Seco entao
+               retorne NaoVa
+            senao 
+               se Umidade = Normal entao
+                  retorne Va
+               senao 
+                  se Umidade = Umido entao
+                     retorne Va
+                  fim-se
+               fim-se
+            fim-se
+         fim-se
+      fim-se
+   fim-se
+senao 
+   se Vento = Nao entao
+      se Aparencia = Sol entao
+         se Umidade = Seco entao
+            retorne Va
+         senao 
+            se Umidade = Normal entao
+               retorne NaoVa
+            senao 
+               se Umidade = Umido entao
+                  retorne NaoVa
+               fim-se
+            fim-se
+         fim-se
+      senao 
+         se Aparencia = Chuva entao
+            retorne Va
+         senao 
+            se Aparencia = Nublado entao
+               retorne Va
+            fim-se
+         fim-se
+      fim-se
+   fim-se
+fim-se

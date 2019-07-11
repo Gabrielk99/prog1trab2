@@ -1,0 +1,7 @@
+se Umidade <= 78.5 entao
+   retorne Va
+senao 
+   se Umidade > 78.5 entao
+      retorne NaoVa
+   fim-se
+fim-se

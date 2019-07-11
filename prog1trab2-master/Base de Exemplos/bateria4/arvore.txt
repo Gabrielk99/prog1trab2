@@ -1,0 +1,37 @@
+se petalLength <= 2.45 entao
+   retorne Iris-setosa
+senao 
+   se 2.45 < petalLength <= 4.225 entao
+      retorne Iris-versicolor
+   senao 
+      se 4.225 < petalLength <= 4.275 entao
+         retorne Iris-virginica
+      senao 
+         se 4.275 < petalLength <= 4.5 entao
+            retorne Iris-versicolor
+         senao 
+            se 4.5 < petalLength <= 4.55 entao
+               se petalWidth <= 1.375 entao
+                  retorne Iris-versicolor
+               senao 
+                  se 1.375 < petalWidth <= 1.475 entao
+                     retorne Iris-virginica
+                  senao 
+                     se petalWidth > 1.475 entao
+                        retorne Iris-versicolor
+                     fim-se
+                  fim-se
+               fim-se
+            senao 
+               se 4.55 < petalLength <= 4.95 entao
+                  retorne Iris-versicolor
+               senao 
+                  se petalLength > 4.95 entao
+                     retorne Iris-virginica
+                  fim-se
+               fim-se
+            fim-se
+         fim-se
+      fim-se
+   fim-se
+fim-se

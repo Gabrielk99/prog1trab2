@@ -1,0 +1,5 @@
+Aparencia Sol Chuva Nublado
+Temperatura Baixa Media Alta
+Umidade Seco Normal Umido
+Vento Sim Nao
+Viajar Va NaoVa

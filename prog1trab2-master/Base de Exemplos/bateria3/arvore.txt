@@ -1,0 +1,11 @@
+se Umidade <= 74.0 entao
+   retorne Va
+senao 
+   se 74.0 < Umidade <= 85.5 entao
+      retorne NaoVa
+   senao 
+      se Umidade > 85.5 entao
+         retorne Va
+      fim-se
+   fim-se
+fim-se

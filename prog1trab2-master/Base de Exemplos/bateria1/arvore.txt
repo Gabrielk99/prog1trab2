@@ -1,0 +1,17 @@
+se Vento = Sim entao
+   retorne Va
+senao 
+   se Vento = Nao entao
+      se Umidade <= 73.0 entao
+         retorne Va
+      senao 
+         se 73.0 < Umidade <= 93.0 entao
+            retorne NaoVa
+         senao 
+            se Umidade > 93.0 entao
+               retorne Va
+            fim-se
+         fim-se
+      fim-se
+   fim-se
+fim-se

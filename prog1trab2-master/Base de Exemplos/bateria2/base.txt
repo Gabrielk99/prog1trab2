@@ -1,0 +1,15 @@
+Sol Media Seco Sim Va
+Sol Alta Umido Sim NaoVa
+Sol Media Seco Nao Va
+Sol Media Umido Nao NaoVa
+Sol Alta Normal Nao NaoVa
+Nublado Media Umido Sim Va
+Nublado Alta Normal Nao Va
+Nublado Baixa Seco Sim NaoVa
+Nublado Media Normal Nao Va
+Nublado Baixa Normal Sim Va
+Chuva Baixa Umido Nao Va
+Chuva Baixa Seco Sim NaoVa
+Chuva Media Normal Sim NaoVa
+Chuva Media Normal Nao Va
+Chuva Baixa Normal Nao Va

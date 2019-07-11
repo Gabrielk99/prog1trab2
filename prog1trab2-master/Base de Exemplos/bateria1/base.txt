@@ -1,0 +1,15 @@
+Sol 25 72 Sim Va
+Sol 28 91 Sim Va
+Sol 22 70 Nao Va
+Sol 23 95 Nao Va
+Sol 30 85 Nao NaoVa
+Chuva 25 77 Nao NaoVa
+Chuva 28 85 Nao NaoVa
+Chuva 22 76 Nao NaoVa
+Chuva 23 85 Nao NaoVa
+Chuva 30 83 Nao NaoVa
+Nublado 25 86 Sim Va
+Nublado 28 91 Nao NaoVa
+Nublado 22 77 Sim Va
+Nublado 29 85 Nao NaoVa
+Nublado 30 85 Nao NaoVa
